@@ -1,0 +1,8 @@
+ort -t "_" -k2 -k3 -g <filename>
+-t "_" - field seperator is _
+
+-k2 - 1st sort on the second column
+
+-k3 - then sort on the third column
+
+-g - general numerical sort
