@@ -1,0 +1,4 @@
+error time tar file
+bash: /bin/tar: Argument list too long when compressing many files with tar
+tar -cv -T file_list.txt -f tarball.tar
+use switch -t
