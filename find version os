@@ -1,0 +1,5 @@
+Check os version in Linux
+
+cat /etc/os-release
+lsb_release -a
+hostnamectl
