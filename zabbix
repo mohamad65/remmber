@@ -1,0 +1,25 @@
+Installing a Zabbix-Proxy with Debian 8
+wget http://repo.zabbix.com/zabbix/3.0/debian/pool/main/z/zabbix-release/zabbix-release_3.0-1+jessie_all.deb
+dpkg -i zabbix-release_3.0-1+jessie_all.deb
+aptitude update
+aptitude install zabbix-proxy-mysql mysql-server
+
+mysql -u root -p
+– create database zabbix character set utf8 collate utf8_bin;
+– grant all privileges on zabbix.* to zabbix@localhost identified by ‚<new password for zabbix user on zabbix database>‘;
+– quit;
+zcat /usr/share/doc/zabbix-proxy-mysql/schema.sql.gz | mysql -u zabbix -p zabbix
+
+vi /etc/zabbix/zabbix_proxy.conf
+– Server=yourMasterIP
+– Hostname=theProxyNameinZabbixMaster
+– DBName=zabbix
+– DBPassword=PWfromAbove
+
+service zabbix-proxy restart
+
+Go to Zabbix WebUI and
+– Administration
+– Proxies
+– Create proxy
+– Choose name from Hostname
